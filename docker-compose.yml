@@ -1,0 +1,16 @@
+version: '3.7'
+
+services:
+  elixir:
+    image: 'hexpm/elixir:1.11.1-erlang-22.3.4.12-ubuntu-focal-20200703'
+    working_dir: /src
+    volumes:
+      - type: bind
+        source: ./src
+        target: /src
+      - build:/src/_build/
+      - /src/deps/
+    command: bash
+
+volumes:
+  build:
